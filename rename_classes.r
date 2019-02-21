@@ -1,0 +1,5 @@
+bebidas_train$classe[bebidas_train$classe == '3.5624ppm'] <- 'muitobaixo'
+bebidas_train$classe[bebidas_train$classe == '7.1248ppm'] <- 'baixo'
+bebidas_train$classe[bebidas_train$classe == '11.9445ppm'] <- 'medio'
+bebidas_train$classe[bebidas_train$classe == '23.8889ppm'] <- 'alto'
+bebidas_train$classe[bebidas_train$classe == '41.9103ppm'] <- 'muitoalto'

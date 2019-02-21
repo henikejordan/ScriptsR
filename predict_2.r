@@ -1,0 +1,5 @@
+bagcontrol <- trainControl(method="repeatedcv", number=5, repeats=3)
+set.seed(7)
+fit.rf <- train(classe~., data=train_set, method="rf", metric="Accuracy", trControl=bagcontrol)
+test_set$pred <- predict(fit.rf, newdata=test_set)
+confusionMatrix(data = test_set$pred, reference = as.factor(test_set$classe))

@@ -1,0 +1,8 @@
+control <- trainControl(method="repeatedcv", number=10, repeats=3)
+set.seed(7)
+fit.c50 <- train(classe~., data=bebidas_train, method="C5.0", metric="Accuracy", trControl=control)
+set.seed(7)
+fit.gbm <- train(classe~., data=bebidas_train, method="gbm", metric="Accuracy", trControl=control, verbose=FALSE)
+boosting_results <- resamples(list(c5.0=fit.c50, gbm=fit.gbm))
+summary(boosting_results)
+dotplot(boosting_results)
